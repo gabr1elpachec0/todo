@@ -1,15 +1,20 @@
 import { Button } from "./components/Button"
+import { Task } from "./components/Task"
+import { List } from 'phosphor-react'
 
 function App() {
   return (
     <div className='flex w-screen h-screen items-center text-center justify-center'>
       <div className='flex flex-col items-start w-1/2 h-1/2 font-inter'>
-        <h1 className='font-semibold text-3xl mb-10'>To-Do</h1>
+        <div className='flex gap-x-3 items-center justify-center mb-5'>
+          <List size={30} className='text-purpleButton'/>
+          <h1 className='font-bold text-2xl'>ToDo List</h1>
+        </div>
         <hr className='border-zinc-200 w-full rounded mb-10' />
-
-        <div className='flex gap-x-5'>
+        
+        <div className='flex gap-x-5 mb-10 w-full'>
           <Button
-            style="bg-purpleButton px-3 py-3 rounded-xl text-white flex gap-x-3 font-semibold"
+            style="bg-purpleButton px-5 py-2 rounded-xl text-white flex gap-x-3 font-semibold items-center"
             text="New Task" 
             svg={
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -18,7 +23,7 @@ function App() {
             }
           />
           <Button
-            style="border-2 border-zinc-200 px-3 py-3 rounded-xl text-black font-semibold flex gap-x-3"
+            style="border-2 border-zinc-200 px-5 py-2 rounded-xl text-black flex gap-x-3 font-semibold items-center"
             text="Filters" 
             svg={
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
@@ -27,6 +32,8 @@ function App() {
             }
           />
         </div>
+
+        <Task />
         
       </div>
     </div>
