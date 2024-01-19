@@ -1,6 +1,8 @@
+import * as Dialog from "@radix-ui/react-dialog"
 import { Button } from "./components/Button"
 import { Task } from "./components/Task"
-import { List } from 'phosphor-react'
+import { List, X } from 'phosphor-react'
+import { NewTaskForm } from "./components/NewTaskForm"
 
 function App() {
   return (
@@ -13,15 +15,34 @@ function App() {
         <hr className='border-zinc-200 w-full rounded mb-10' />
         
         <div className='flex gap-x-5 mb-10 w-full'>
-          <Button
-            style="bg-purpleButton px-5 py-2 rounded-xl text-white flex gap-x-3 font-semibold items-center"
-            text="New Task" 
-            svg={
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-              </svg>
-            }
-          />
+          <Dialog.Root>
+            <Dialog.Trigger>
+              <Button
+                style="bg-purpleButton px-5 py-2 rounded-xl text-white flex gap-x-3 font-semibold items-center"
+                text="New Task" 
+                svg={
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                }
+              />
+            </Dialog.Trigger>
+
+            <Dialog.Portal>
+              <Dialog.Overlay className='w-screen h-screen bg-black/80 fixed inset-0' />
+              <Dialog.Content className='absolute p-10 bg-white rounded-2xl w-full max-w-md top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                <Dialog.Close className='absolute right-6 top-6 text-purpleButton rounded-lg'>
+                  <X size={24} aria-label="fechar"/>
+                </Dialog.Close>
+                
+                <Dialog.Title className='text-3xl text-purpleButton font-inter leading-tight'>
+                  Criar tarefa
+                </Dialog.Title>
+
+                <NewTaskForm />
+              </Dialog.Content>
+            </Dialog.Portal>
+          </Dialog.Root>
           <Button
             style="border-2 border-zinc-200 px-5 py-2 rounded-xl text-black flex gap-x-3 font-semibold items-center"
             text="Filters" 

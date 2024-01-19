@@ -1,5 +1,5 @@
 import * as Checkbox from "@radix-ui/react-checkbox"
-import { Check } from 'phosphor-react'
+import { Check, Pencil, Trash} from 'phosphor-react'
 
 export function Task() {
   return (
@@ -20,8 +20,10 @@ export function Task() {
             <p className='text-sm text-yellow-500 group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400'>18/01/2024</p>
           </div>          
         </Checkbox.Root>
-        <div className='justify-items-end'>
-          <p className='text-sm text-green-500'>completed</p>
+        <div className='justify-items-end flex items-center justify-between gap-x-2'>
+          {/* <p className='text-sm text-green-500'>completed</p> */}
+          <Pencil size={20} className='text-purpleButton cursor-pointer'/>
+          <Trash size={20} className='text-purpleButton cursor-pointer'/>
         </div>
       </div>     
     </div>
