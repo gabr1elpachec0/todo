@@ -1,7 +1,7 @@
 import { Check } from "phosphor-react"
 import { useState } from "react"
 
-export function NewTaskForm() {
+export function TaskForm() {
   const [title, setTitle] = useState('')
 
   return (

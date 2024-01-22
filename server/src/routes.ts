@@ -2,6 +2,10 @@ import { FastifyInstance } from "fastify"
 import { prisma } from "./lib/prisma"
 import { z } from 'zod'
 
+interface updateTaskRequest {
+  title?: string
+}
+
 export async function appRoutes(app: FastifyInstance) {
   // Listar todas tarefas
   app.get('/tasks', async () => {
@@ -17,7 +21,7 @@ export async function appRoutes(app: FastifyInstance) {
 
     const { title } = createTaskBody.parse(req.body) 
 
-    const createTask = await prisma.task.create({
+    await prisma.task.create({
       data: {
         title: title
       }
@@ -48,7 +52,7 @@ export async function appRoutes(app: FastifyInstance) {
       }
     }
 
-    const updateCompletedStatus = await prisma.task.update({
+    await prisma.task.update({
       where: {
         id: id
       },
@@ -58,6 +62,33 @@ export async function appRoutes(app: FastifyInstance) {
     })
 
     // console.log('Tarefa atualizada')
+  })
+
+  app.patch('/task/:id/update', async(req) => {
+    const updateTaskParams = z.object({
+      id: z.string().uuid()
+    })
+
+    const { id } = updateTaskParams.parse(req.params)
+
+    const findTask = await prisma.task.findUnique({
+      where: {
+        id: id
+      }
+    })
+
+    if (findTask) {
+      const { title } = req.body as updateTaskRequest
+
+      await prisma.task.update({
+        where: {
+          id: findTask.id
+        },
+        data: {
+          title: title || findTask.title
+        }
+      })
+    }
   })
 
   // Excluir tarefa

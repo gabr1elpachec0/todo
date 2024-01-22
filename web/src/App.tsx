@@ -2,7 +2,7 @@ import * as Dialog from "@radix-ui/react-dialog"
 import { Button } from "./components/Button"
 import { Task } from "./components/Task"
 import { List, X } from 'phosphor-react'
-import { NewTaskForm } from "./components/NewTaskForm"
+import { TaskForm } from "./components/TaskForm"
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
                   Criar tarefa
                 </Dialog.Title>
 
-                <NewTaskForm />
+                <TaskForm />
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
