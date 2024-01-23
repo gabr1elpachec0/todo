@@ -1,11 +1,28 @@
 import { Check } from "phosphor-react"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
+import { api } from "../lib/axios"
 
-export function TaskForm() {
+export function NewTaskForm() {
   const [title, setTitle] = useState('')
 
+  async function createNewTask(event: FormEvent) {
+    event.preventDefault()
+
+    if (title) {
+      await api.post('/task', {
+        title
+      })
+    } else {
+      console.log('Campo não informado')
+    }
+
+    setTitle('')
+
+    alert('Tarefa criada com sucesso!')
+  }
+
   return (
-    <form className='w-full flex flex-col mt-6'>
+    <form className='w-full flex flex-col mt-6' onSubmit={createNewTask}>
       <label htmlFor="title" className='font-inter leading-tight'>
         Tarefa
       </label>

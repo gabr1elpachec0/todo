@@ -1,15 +1,14 @@
 import * as Dialog from "@radix-ui/react-dialog"
 import { Button } from "./components/Button"
 import { Task } from "./components/Task"
-import { List, X } from 'phosphor-react'
-import { TaskForm } from "./components/TaskForm"
+import { X } from 'phosphor-react'
+import { NewTaskForm } from "./components/NewTaskForm"
 
 function App() {
   return (
     <div className='flex w-screen h-screen items-center text-center justify-center'>
       <div className='flex flex-col items-start w-1/2 h-1/2 font-inter'>
         <div className='flex gap-x-3 items-center justify-center mb-5'>
-          <List size={30} className='text-purpleButton'/>
           <h1 className='font-bold text-2xl'>ToDo List</h1>
         </div>
         <hr className='border-zinc-200 w-full rounded mb-10' />
@@ -39,7 +38,7 @@ function App() {
                   Criar tarefa
                 </Dialog.Title>
 
-                <TaskForm />
+                <NewTaskForm />
               </Dialog.Content>
             </Dialog.Portal>
           </Dialog.Root>
