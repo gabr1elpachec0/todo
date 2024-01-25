@@ -47,8 +47,7 @@ export async function appRoutes(app: FastifyInstance) {
     if (findTask) {
       if (findTask.completed === false) {
         findTask.completed = true
-      } 
-      else {
+      } else {
         findTask.completed = false
       }
     }
