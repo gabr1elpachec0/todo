@@ -4,9 +4,10 @@ import { api } from "../lib/axios"
 
 interface UpdateTaskFormProps {
   taskId: string
+  taskTitle: string
 }
 
-export function UpdateTaskForm({taskId}: UpdateTaskFormProps) {
+export function UpdateTaskForm({ taskId, taskTitle }: UpdateTaskFormProps) {
   const [title, setTitle] = useState('')
 
   async function updateTask(event: FormEvent) {
@@ -33,7 +34,7 @@ export function UpdateTaskForm({taskId}: UpdateTaskFormProps) {
       <input
         type="text"
         id="title"
-        placeholder="digite o título da sua tarefa"
+        placeholder={taskTitle}
         className='p-4 rounded-xl mt-3 border-2 border-zinc-200 text-black placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-purpleButton'
         autoFocus
         value={title}
