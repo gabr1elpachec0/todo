@@ -107,4 +107,24 @@ export async function appRoutes(app: FastifyInstance) {
 
     // console.log('Tarefa excluída')
   })
+
+  // In Progress Tasks
+  app.get('/tasks/inProgress', async () => {
+    const inProgressTasks = await prisma.task.findMany({
+      where: {
+        completed: false
+      }
+    })
+    return inProgressTasks
+  })
+
+  // Completed Tasks
+  app.get('/tasks/completed', async () => {
+    const completedTasks = await prisma.task.findMany({
+      where: {
+        completed: true
+      }
+    })
+    return completedTasks
+  })
 }

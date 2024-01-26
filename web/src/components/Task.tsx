@@ -5,20 +5,14 @@ import { UpdateTaskForm } from "./UpdateTaskForm"
 import { useEffect, useState } from "react"
 import { api } from "../lib/axios"
 import dayjs from "dayjs"
-
-interface Task {
-  id: string,
-  title: string,
-  created_at: Date,
-  completed: boolean
-}
+import { TaskProps } from "../types/types"
 
 export function Task() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [tasks, setTasks] = useState<TaskProps[]>([])
 
   const fetchData = async () => {
     try {
-      const response = await api.get<Task[]>('/tasks')
+      const response = await api.get<TaskProps[]>('/tasks')
       setTasks(response.data)
     } catch (error) {
       console.error('Error fetching tasks data: ', error)
