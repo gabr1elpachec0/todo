@@ -42,7 +42,7 @@ export function UpdateTaskForm({ taskId, taskTitle }: UpdateTaskFormProps) {
       />
       <button
         type='submit'
-        className='w-full mt-6 rounded-xl gap-3 bg-purpleButton flex items-center justify-center font-inter text-white p-4 focus:outline-none focus:ring-2 focus:ring-zinc-400 hover:opacity-80 duration-300'
+        className='w-full mt-6 rounded-xl gap-3 bg-purpleButton flex items-center justify-center font-inter text-white p-4 focus:outline-none focus:ring-2 focus:ring-zinc-400 hover:opacity-80 duration-700'
       >
         <Check size={20} weight='bold'/>
         Confirmar
