@@ -108,6 +108,10 @@ export async function appRoutes(app: FastifyInstance) {
     // console.log('Tarefa excluída')
   })
 
+  app.delete('/tasks', async(req) => {
+    await prisma.task.deleteMany()
+  })
+
   // In Progress Tasks
   app.get('/tasks/inProgress', async () => {
     const inProgressTasks = await prisma.task.findMany({

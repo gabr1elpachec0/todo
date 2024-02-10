@@ -9,9 +9,7 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
       },
-      colors: {
-        purpleButton: "#3B40D5",
-      }
+      colors: {}
     },
   },
   plugins: [],
