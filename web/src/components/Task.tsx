@@ -11,9 +11,11 @@ interface TaskProps {
   created_at: Date
   completed: boolean
   toggleTask: (id: string) => void
+  deleteTask: (id: string) => void
+  // updateTask: (id: string, title: string) => void
 }
 
-export function Task({ id, title, created_at, completed, toggleTask }: TaskProps) {
+export function Task({ id, title, created_at, completed, toggleTask, deleteTask }: TaskProps) {
 
   return (
     <div className='w-full flex items-center justify-between p-5 border-2 border-zinc-800 rounded-lg'>
@@ -40,10 +42,10 @@ export function Task({ id, title, created_at, completed, toggleTask }: TaskProps
       </Checkbox.Root>
 
       <div className='flex gap-5'>
-        {completed ? <p>completed</p> : ''}
-        <UpdateTask />
+        {completed ? '' : <div className='animate-pulse size-4 rounded-full bg-zinc-400'/>}
+        {/* <UpdateTask /> */}
         <button
-          
+         onClick={() => deleteTask(id)} 
         >
           <Trash className='size-4 hover:text-zinc-200 duration-200'/>
         </button>

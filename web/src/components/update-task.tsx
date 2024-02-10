@@ -3,10 +3,10 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { Check, Pencil, X } from "lucide-react";
 import { useState } from "react";
 
-// interface UpdateTaskProps {
-//   id: string
-//   onTaskUpdated: (title: string, taskId: string) => void
-// }
+interface UpdateTaskProps {
+  id: string
+  onTaskUpdated: (title: string, taskId: string) => void
+}
 
 export function UpdateTask() {
   const [title, setTitle] = useState('')

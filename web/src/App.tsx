@@ -61,6 +61,33 @@ export function App() {
 
   const filteredTasks = search !== '' ? tasks.filter(task => task.title.toLocaleLowerCase().includes(search)) : tasks
 
+  const deleteTask = async (id: string) => {
+    try {
+      await api.delete(`/task/${id}`)
+
+      toast.success('Tarefa excluída com sucesso!')
+
+      await fetchData()
+    } catch(error) {
+      console.error(error)
+    }
+  }
+
+  // const updateTask = async (id: string, title: string) => {
+  //   try {
+  //     await api.patch(`/task/${id}/update`, {
+  //       title
+  //     })
+
+  //     toast.success('Tarefa atualizada com sucesso!')
+
+  //     await fetchData()
+  //   } catch(error) {
+  //     console.error(error)
+  //   }
+  // }
+
+
 
   return (
     <div className='max-w-6xl mx-auto my-12 space-y-6 px-5'>
@@ -81,7 +108,16 @@ export function App() {
 
       <div className='w-full flex flex-col space-y-4'>
         {filteredTasks .map(task => (
-          <Task id={task.id} key={task.id} title={task.title} created_at={task.created_at} completed={task.completed} toggleTask={() => {toggleTask(task.id)}}/>
+          <Task 
+            id={task.id} 
+            key={task.id} 
+            title={task.title} 
+            created_at={task.created_at} 
+            completed={task.completed} 
+            toggleTask={() => {toggleTask(task.id)}} 
+            deleteTask={() => {deleteTask(task.id)}}
+            // updateTask={() => {updateTask(task.id)}}
+          />
         ))}
       </div>      
     </div>

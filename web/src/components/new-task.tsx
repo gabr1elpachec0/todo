@@ -37,7 +37,7 @@ export function NewTask({ onTaskCreated }: CreateTaskProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className='inset-0 fixed bg-black/60' />
-        <Dialog.Content className='overflow-hidden inset-0 md:inset-auto md:-translate-x-1/2 md:-translate-y-1/2 md:left-1/2 md:top-1/2 fixed md:max-w-[520px] w-full md:h-[40vh] bg-zinc-800 md:rounded-xl flex flex-col outline-none'>
+        <Dialog.Content className=' overflow-hidden inset-0 md:inset-auto md:-translate-x-1/2 md:-translate-y-1/2 md:left-1/2 md:top-1/2 fixed md:max-w-[480px] p-5 w-full bg-zinc-900 md:rounded-3xl flex flex-col outline-none'>
           <Dialog.Close className='absolute right-2 top-2 p-1.5 text-zinc-400 hover:text-zinc-100'>
             <X className='size-5'/>
           </Dialog.Close>
@@ -54,7 +54,7 @@ export function NewTask({ onTaskCreated }: CreateTaskProps) {
             <input 
               type="text" 
               name="title" 
-              className='bg-transparent border-2 border-zinc-700 rounded-xl px-3 py-4 outline-none text-sm' 
+              className='bg-transparent border-2 border-zinc-800 rounded-xl px-3 py-4 outline-none text-sm' 
               placeholder='digite o título da tarefa' 
               onChange={event => setTitle(event.target.value)}
               value={title}
@@ -62,7 +62,7 @@ export function NewTask({ onTaskCreated }: CreateTaskProps) {
 
             <button
               type='submit'
-              className='w-full flex items-center justify-center gap-2 bg-zinc-900 py-4 text-center text-sm text-zinc-300 outline-none font-medium hover:text-zinc-100 rounded-xl'
+              className='w-full flex items-center justify-center gap-2 bg-zinc-950 py-4 text-center text-sm text-zinc-300 outline-none font-medium hover:text-zinc-100 rounded-xl'
             >
               <span>
                 <Check className='size-4' />
