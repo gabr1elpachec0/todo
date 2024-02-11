@@ -14,12 +14,13 @@
 
 1. ``TYPESCRIPT``
 2. ``REACT``
-3. ``TAILWINDCSS``
-4. ``FASTIFY``
-5. ``SQLITE``
-6. ``PRISMA ORM``
-7. ``SONNER``
-8. ``RADIX UI``
+3. ``VITE``
+4. ``TAILWINDCSS``
+5. ``FASTIFY``
+6. ``SQLITE``
+7. ``PRISMA ORM``
+8. ``SONNER``
+9. ``RADIX UI``
 
 <h2 id='font'>
   Font
