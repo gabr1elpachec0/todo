@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash } from 'lucide-react'
-import { UpdateTask } from './update-task'
 import { formatDistanceToNow } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
