@@ -61,6 +61,10 @@ export function App() {
 
   const filteredTasks = search !== '' ? tasks.filter(task => task.title.toLocaleLowerCase().includes(search)) : tasks
 
+  const inProgressTasks = filteredTasks.filter(task => !task.completed);
+  const completedTasks = filteredTasks.filter(task => task.completed);
+
+
   const deleteTask = async (id: string) => {
     try {
       await api.delete(`/task/${id}`)
@@ -107,7 +111,19 @@ export function App() {
       <div className='h-px bg-zinc-800' /> 
 
       <div className='w-full flex flex-col space-y-4'>
-        {filteredTasks .map(task => (
+        {inProgressTasks.map(task => (
+          <Task 
+            id={task.id} 
+            key={task.id} 
+            title={task.title} 
+            created_at={task.created_at} 
+            completed={task.completed} 
+            toggleTask={() => {toggleTask(task.id)}} 
+            deleteTask={() => {deleteTask(task.id)}}
+            // updateTask={() => {updateTask(task.id)}}
+          />
+        ))}
+        {completedTasks.map(task => (
           <Task 
             id={task.id} 
             key={task.id} 

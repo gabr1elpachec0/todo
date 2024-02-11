@@ -24,9 +24,9 @@ export function Task({ id, title, created_at, completed, toggleTask, deleteTask 
         onCheckedChange={() => toggleTask(id)} 
         checked={completed}           
       >
-        <div className='h-6 w-6 rounded flex items-center justify-center border-2 border-zinc-200 group-data-[state=checked]:bg-zinc-400 group-data-[state=checked]:border-zinc-400 transition-colors duration-200'>
+        <div className='h-5 w-5 rounded flex items-center justify-center border-2 border-zinc-200 group-data-[state=checked]:bg-zinc-400 group-data-[state=checked]:border-zinc-400 transition-colors duration-200'>
           <Checkbox.Indicator>
-            <Check size={15} className='text-zinc-800'/>
+            <Check size={10} className='text-zinc-800'/>
           </Checkbox.Indicator>
         </div>
         <div className='flex flex-col items-start'>
