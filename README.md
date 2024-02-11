@@ -1,5 +1,5 @@
 <h1 align='center'>
-  minimalistic to-do web app
+  minimalistic todo web app
 </h1>
 
 <p align='center'>
@@ -9,7 +9,7 @@
 </p>
 
 <h2 id='tech'>
-  Technologies
+  🌐 Technologies
 </h2>
 
 1. ``TYPESCRIPT``
@@ -23,13 +23,13 @@
 9. ``RADIX UI``
 
 <h2 id='font'>
-  Font
+  📌 Font
 </h2>
 
 <a href='https://fonts.google.com/specimen/Inter?query=inter'>Inter</a>
 
 <h2 id='pics'>
-  Pictures
+  🔗 Pictures
 </h2>
 
 MAIN
