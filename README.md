@@ -1,5 +1,5 @@
 <h1 align='center'>
-  minimalistic web to-do app
+  minimalistic to-do web app
 </h1>
 
 <p align='center'>
