@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Checkbox from '@radix-ui/react-checkbox'
 import { Check, Trash } from 'lucide-react'
 import { formatDistanceToNow } from 'date-fns'
@@ -11,7 +10,6 @@ interface TaskProps {
   completed: boolean
   toggleTask: (id: string) => void
   deleteTask: (id: string) => void
-  // updateTask: (id: string, title: string) => void
 }
 
 export function Task({ id, title, created_at, completed, toggleTask, deleteTask }: TaskProps) {
@@ -41,8 +39,7 @@ export function Task({ id, title, created_at, completed, toggleTask, deleteTask 
       </Checkbox.Root>
 
       <div className='flex gap-5'>
-        {completed ? '' : <div className='animate-pulse size-4 rounded-full bg-zinc-400'/>}
-        {/* <UpdateTask /> */}
+        {completed ? '' : <div className='animate-pulse size-4 rounded-full bg-zinc-400'/>}        
         <button
          onClick={() => deleteTask(id)} 
         >

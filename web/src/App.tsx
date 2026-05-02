@@ -1,8 +1,8 @@
+import { ChangeEvent, useEffect, useState } from "react"
+import { toast } from "sonner"
 import { Task } from "./components/task"
 import { NewTask } from "./components/new-task"
-import { ChangeEvent, useEffect, useState } from "react"
 import { api } from "./lib/axios"
-import { toast } from "sonner"
 
 interface Task {
   id: string
@@ -17,9 +17,7 @@ export function App() {
 
   const fetchData = async () => {
     try {
-      const response = await api.get<Task[]>('/tasks')
-      // console.log(response.data)
-      
+      const response = await api.get<Task[]>('/tasks')      
       setTasks(response.data.reverse())
     } catch (error) {
       console.error(error)
@@ -77,22 +75,6 @@ export function App() {
     }
   }
 
-  // const updateTask = async (id: string, title: string) => {
-  //   try {
-  //     await api.patch(`/task/${id}/update`, {
-  //       title
-  //     })
-
-  //     toast.success('Tarefa atualizada com sucesso!')
-
-  //     await fetchData()
-  //   } catch(error) {
-  //     console.error(error)
-  //   }
-  // }
-
-
-
   return (
     <div className='max-w-6xl mx-auto my-12 space-y-6 px-5'>
       <div className='flex items-center w-full gap-10'>
@@ -120,7 +102,6 @@ export function App() {
             completed={task.completed} 
             toggleTask={() => {toggleTask(task.id)}} 
             deleteTask={() => {deleteTask(task.id)}}
-            // updateTask={() => {updateTask(task.id)}}
           />
         ))}
         {completedTasks.map(task => (
@@ -131,8 +112,7 @@ export function App() {
             created_at={task.created_at} 
             completed={task.completed} 
             toggleTask={() => {toggleTask(task.id)}} 
-            deleteTask={() => {deleteTask(task.id)}}
-            // updateTask={() => {updateTask(task.id)}}
+            deleteTask={() => {deleteTask(task.id)}}            
           />
         ))}
       </div>      

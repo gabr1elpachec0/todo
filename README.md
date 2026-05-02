@@ -1,8 +1,6 @@
 # Minimalistic TODO
 
-[Technologies](#tech) • [Font](#font) • [Pictures](#pics)
-
-## 🌐 Technologies <a id="tech"></a>
+## 🌐 Technologies
 
 1. `TYPESCRIPT`
 2. `REACT`
@@ -14,11 +12,7 @@
 8. `SONNER`
 9. `RADIX UI`
 
-## 📌 Font <a id="font"></a>
-
-- [Inter](https://fonts.google.com/specimen/Inter?query=inter)
-
-## 🔗 Pictures <a id="pics"></a>
+## 🔗 Pictures
 
 ![Captura de tela 2024-02-10 231546](https://github.com/gabr1elpachec0/todo/assets/97643968/db8e8992-8b62-449b-9f69-6c2844d0a21a)
 

@@ -7,13 +7,11 @@ interface updateTaskRequest {
 }
 
 export async function appRoutes(app: FastifyInstance) {
-  // Listar todas tarefas
   app.get('/tasks', async () => {
     const findAllTasks = await prisma.task.findMany()
     return findAllTasks
   })
-
-  // Criar tarefa
+  
   app.post('/task', async(req) => {
     const createTaskBody = z.object({
       title: z.string(),
@@ -26,11 +24,8 @@ export async function appRoutes(app: FastifyInstance) {
         title: title
       }
     })
-
-    // console.log('Tarefa criada')
   })
 
-  // Alternar status de completo
   app.patch('/task/:id/toggle', async(req) => {
     const toggleTaskParams = z.object({
       id: z.string().uuid()
@@ -60,8 +55,6 @@ export async function appRoutes(app: FastifyInstance) {
         completed: findTask?.completed
       }
     })
-
-    // console.log('Tarefa atualizada')
   })
 
   app.patch('/task/:id/update', async(req) => {
@@ -91,7 +84,6 @@ export async function appRoutes(app: FastifyInstance) {
     }
   })
 
-  // Excluir tarefa
   app.delete('/task/:id', async(req) => {
     const deleteTaskParams = z.object({
       id: z.string().uuid()
@@ -104,15 +96,12 @@ export async function appRoutes(app: FastifyInstance) {
         id: id
       }
     })
-
-    // console.log('Tarefa excluída')
   })
 
   app.delete('/tasks', async(req) => {
     await prisma.task.deleteMany()
   })
 
-  // In Progress Tasks
   app.get('/tasks/inProgress', async () => {
     const inProgressTasks = await prisma.task.findMany({
       where: {
@@ -122,7 +111,6 @@ export async function appRoutes(app: FastifyInstance) {
     return inProgressTasks
   })
 
-  // Completed Tasks
   app.get('/tasks/completed', async () => {
     const completedTasks = await prisma.task.findMany({
       where: {

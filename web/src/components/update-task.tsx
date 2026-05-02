@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import * as Dialog from "@radix-ui/react-dialog";
 import { Check, Pencil, X } from "lucide-react";
 import { useState } from "react";
